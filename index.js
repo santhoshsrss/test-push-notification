@@ -35,14 +35,15 @@ app.post('/send', (req, res) => {
 
   const message = {
     notification: {
-      title: 'Notif',
+      title: 'Onbo',
       body: 'This is a Test Notification',
     },
-    token: "ebV1-TmRRc6clk5bKxurXF:APA91bEcjrf2ajhZftTNZjEWLIwqBQMPdvl7nVuzUGVxcq0dijacWZlRhSezb2y0_v8_xCUalmoN44QmTY7IkHgNWqU2DKvy5AH2iM-_GxzT4qp-qLt4Z4JUwMSgkKIeCguGnERViCMa",
+    tokens: ['fGABSY71RKeZJ90T2nlK9_:APA91bEosZXNTaaPhWU2zaHxRrNL-nexC-y3oWkkUQv-6ixE_1IhBkI9VD1WJjeaPdIBe_vYn-sdYxN3OKLHwFk-D9ssG_SUXdRhazQPXrUl5hdkiFShJ8iiKY_vBbho4oMg0ucuzhwx'],
+    // tokens: 'fGABSY71RKeZJ90T2nlK9_:APA91bEosZXNTaaPhWU2zaHxRrNL-nexC-y3oWkkUQv-6ixE_1IhBkI9VD1WJjeaPdIBe_vYn-sdYxN3OKLHwFk-D9ssG_SUXdRhazQPXrUl5hdkiFShJ8iiKY_vBbho4oMg0ucuzhwx'],
   };
 
   messaging
-    .send(message)
+    .sendEachForMulticast(message)
     .then((response) => {
       res.status(200).json({
         message: 'Successfully sent message',
